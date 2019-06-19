@@ -12,14 +12,7 @@ use Illuminate\Support\ServiceProvider;
 class ArchUserServiceProvider extends ServiceProvider
 {
     /**
-     * The package root.
-     *
-     * @var string
-     */
-    protected $packageRoot;
-
-    /**
-     * {{@inheritdoc}}
+     * {{@inheritDoc}}
      */
     public function boot(): void
     {
@@ -29,4 +22,10 @@ class ArchUserServiceProvider extends ServiceProvider
         // therefore the registration of these migrations are not optional for this package.
         $this->loadMigrationsFrom("{$root}/database/migrations");
     }
+
+    /**
+     * {{@inheritDoc}}
+     */
+    public function register(): void
+    {}
 }
