@@ -7,18 +7,18 @@ use Carbon\Carbon;
 /**
  * Interface UserEntityInterface.
  *
- * @property string          $first_name
- * @property string          $last_name
- * @property string          $email
- * @property string          $username
- * @property \Carbon\Carbon  $email_verified_at
- * @property string          $password
- * @property string          $role_id
- * @property int             $is_root
- * @property int             $is_active
- * @property string          $remember_token
- * @property \Carbon\Carbon  $created_at
- * @property \Carbon\Carbon  $updated_at
+ * @property string         $first_name
+ * @property string         $last_name
+ * @property string         $email
+ * @property string         $username
+ * @property \Carbon\Carbon $email_verified_at
+ * @property string         $password
+ * @property string         $role_id
+ * @property int            $is_root
+ * @property int            $is_active
+ * @property string         $remember_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  *
  * @package ArchLayerUser\Entity\Contract
  */

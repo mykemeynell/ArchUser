@@ -18,33 +18,40 @@ class UserEntity extends Authenticatable implements Contract\UserEntityInterface
     use Notifiable, EntityHasTimestamps, HasUuidObserver;
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    /**
      * The table name.
      *
      * @var string
      */
     protected $table = 'users';
-
     /**
      * The "type" of the primary key ID.
      *
      * @var string
      */
     protected $keyType = 'string';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'email', 'username', 'email_verified_at', 'password', 'role_id', 'is_root',
-        'is_active', 'remember_token',];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'username',
+        'email_verified_at',
+        'password',
+        'role_id',
+        'is_root',
+        'is_active',
+        'remember_token',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -147,7 +154,7 @@ class UserEntity extends Authenticatable implements Contract\UserEntityInterface
      */
     public function isEmailVerified(): bool
     {
-        return ! empty($this->email_verified_at);
+        return !empty($this->email_verified_at);
     }
 
     /**

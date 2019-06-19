@@ -5,8 +5,8 @@ namespace ArchLayerUser\Entity\Contract;
 /**
  * Interface UserRoleEntityInterface.
  *
- * @property string $name
- * @property string $description
+ * @property string         $name
+ * @property string         $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
