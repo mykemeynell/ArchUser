@@ -7,8 +7,6 @@ use Carbon\Carbon;
 /**
  * Interface UserEntityInterface.
  *
- * @method mixed getKey() Get the value of the model's primary key.
- *
  * @property string          $first_name
  * @property string          $last_name
  * @property string          $email

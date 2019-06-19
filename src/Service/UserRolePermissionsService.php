@@ -52,7 +52,7 @@ class UserRolePermissionsService extends Service implements UserRolePermissionsS
      *
      * @return bool
      */
-    public function update(ParameterBag $payload, string $match = 'id'): bool
+    public function update(ParameterBag $payload, $match = 'id'): bool
     {
         return $this->getRepository()->builder()->where($match, $payload->get($match))->update(
             Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable())

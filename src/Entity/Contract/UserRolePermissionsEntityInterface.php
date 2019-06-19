@@ -5,8 +5,6 @@ namespace ArchLayerUser\Entity\Contract;
 /**
  * Interface UserRolePermissionsInterface.
  *
- * @method mixed getKey() Get the value of the model's primary key.
- *
  * @property string $permission
  * @property string $role_id
  *

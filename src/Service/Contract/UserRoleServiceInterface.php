@@ -30,7 +30,7 @@ interface UserRoleServiceInterface extends ServiceInterface
      *
      * @return bool
      */
-    public function update(ParameterBag $payload, string $match = 'id'): bool;
+    public function update(ParameterBag $payload, $match = 'id'): bool;
 
     /**
      * Delete a user role entity.

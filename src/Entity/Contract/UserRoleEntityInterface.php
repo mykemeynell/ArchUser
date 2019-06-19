@@ -5,8 +5,6 @@ namespace ArchLayerUser\Entity\Contract;
 /**
  * Interface UserRoleEntityInterface.
  *
- * @method mixed getKey() Get the value of the model's primary key.
- *
  * @property string $name
  * @property string $description
  * @property \Carbon\Carbon $created_at
