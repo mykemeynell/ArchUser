@@ -25,12 +25,12 @@ interface UserServiceInterface extends ServiceInterface
     /**
      * Update a user's attributes in the database. Match parameter is used to select column to match on.
      *
-     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
-     * @param string                                         $match
+     * @param \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model $entity
+     * @param \Symfony\Component\HttpFoundation\ParameterBag                                         $payload
      *
      * @return bool
      */
-    public function update(ParameterBag $payload, $match = 'id'): bool;
+    public function update(UserEntityInterface $entity, ParameterBag $payload): bool;
 
     /**
      * Delete a user from the database.

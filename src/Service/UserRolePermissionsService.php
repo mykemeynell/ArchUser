@@ -35,10 +35,10 @@ class UserRolePermissionsService extends Service implements UserRolePermissionsS
      */
     public function create(ParameterBag $payload): UserRolePermissionsEntityInterface
     {
-        $attributes = Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable());
-
         /** @var \ArchLayerUser\Entity\UserRolePermissionEntity $user */
-        $permission = $this->getRepository()->create($attributes);
+        $permission = $this->getRepository()->create(
+            Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable())
+        );
         $permission->save();
 
         return $permission;
@@ -47,14 +47,14 @@ class UserRolePermissionsService extends Service implements UserRolePermissionsS
     /**
      * Update a user role permission. Matching on the $match parameter.
      *
-     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
-     * @param string                                         $match
+     * @param \ArchLayerUser\Entity\Contract\UserRolePermissionsEntityInterface|\Illuminate\Database\Eloquent\Model $entity
+     * @param \Symfony\Component\HttpFoundation\ParameterBag                                                        $payload
      *
      * @return bool
      */
-    public function update(ParameterBag $payload, $match = 'id'): bool
+    public function update(UserRolePermissionsEntityInterface $entity, ParameterBag $payload): bool
     {
-        return $this->getRepository()->builder()->where($match, $payload->get($match))->update(
+        return $entity->update(
             Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable())
         );
     }
