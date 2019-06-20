@@ -25,12 +25,12 @@ interface UserRoleServiceInterface extends ServiceInterface
     /**
      * Update a user role entity. Match parameter is used to select column to match on.
      *
-     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
-     * @param string                                         $match
+     * @param \ArchLayerUser\Entity\Contract\UserRoleEntityInterface|\Illuminate\Database\Eloquent\Model $entity
+     * @param \Symfony\Component\HttpFoundation\ParameterBag                                             $payload
      *
      * @return bool
      */
-    public function update(ParameterBag $payload, $match = 'id'): bool;
+    public function update(UserRoleEntityInterface $entity, ParameterBag $payload): bool;
 
     /**
      * Delete a user role entity.

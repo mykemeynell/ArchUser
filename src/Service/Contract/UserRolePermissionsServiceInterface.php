@@ -25,12 +25,12 @@ interface UserRolePermissionsServiceInterface extends ServiceInterface
     /**
      * Update a user role permission. Matching on the $match parameter.
      *
-     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
-     * @param string                                         $match
+     * @param \ArchLayerUser\Entity\Contract\UserRolePermissionsEntityInterface|\Illuminate\Database\Eloquent\Model $entity
+     * @param \Symfony\Component\HttpFoundation\ParameterBag                                                        $payload
      *
      * @return bool
      */
-    public function update(ParameterBag $payload, $match = 'id'): bool;
+    public function update(UserRolePermissionsEntityInterface $entity, ParameterBag $payload): bool;
 
     /**
      * Delete a user role permission.
