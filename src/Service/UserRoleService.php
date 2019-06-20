@@ -35,10 +35,10 @@ class UserRoleService extends Service implements UserRoleServiceInterface
      */
     public function create(ParameterBag $payload): UserRoleEntityInterface
     {
-        $attributes = Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable());
-
         /** @var \ArchLayerUser\Entity\UserRoleEntity $user */
-        $user = $this->getRepository()->create($attributes);
+        $user = $this->getRepository()->create(
+            Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable())
+        );
         $user->save();
 
         return $user;

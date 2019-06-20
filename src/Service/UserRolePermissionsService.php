@@ -35,10 +35,10 @@ class UserRolePermissionsService extends Service implements UserRolePermissionsS
      */
     public function create(ParameterBag $payload): UserRolePermissionsEntityInterface
     {
-        $attributes = Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable());
-
         /** @var \ArchLayerUser\Entity\UserRolePermissionEntity $user */
-        $permission = $this->getRepository()->create($attributes);
+        $permission = $this->getRepository()->create(
+            Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable())
+        );
         $permission->save();
 
         return $permission;

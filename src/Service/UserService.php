@@ -35,10 +35,10 @@ class UserService extends Service implements UserServiceInterface
      */
     public function create(ParameterBag $payload): UserEntityInterface
     {
-        $attributes = Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable());
-
         /** @var \ArchLayerUser\Entity\UserEntity $user */
-        $user = $this->getRepository()->create($attributes);
+        $user = $this->getRepository()->create(
+            Arr::only($payload->all(), $this->getRepository()->getModel()->getFillable())
+        );
         $user->save();
 
         return $user;
