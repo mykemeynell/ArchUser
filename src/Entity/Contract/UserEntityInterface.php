@@ -13,10 +13,12 @@ use Carbon\Carbon;
  * @property string         $username
  * @property \Carbon\Carbon $email_verified_at
  * @property string         $password
+ * @property string|null    $remember_token
+ * @property string|null    $forgot_token
+ * @property string|null    $api_token
  * @property string         $role_id
  * @property int            $is_root
  * @property int            $is_active
- * @property string         $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
@@ -100,4 +102,25 @@ interface UserEntityInterface
      * @return bool
      */
     public function isActive(): bool;
+
+    /**
+     * Get the remember token.
+     *
+     * @return string|null
+     */
+    public function getRememberToken(): ?string;
+
+    /**
+     * Get the forgot password token.
+     *
+     * @return string|null
+     */
+    public function getForgotPasswordToken(): ?string;
+
+    /**
+     * Get the internal API token.
+     *
+     * @return string|null
+     */
+    public function getApiToken(): ?string;
 }
