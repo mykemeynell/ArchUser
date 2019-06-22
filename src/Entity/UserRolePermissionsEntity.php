@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use UuidColumn\Concern\HasUuidObserver;
 
 /**
- * Class UserRolePermissionEntity.
+ * Class UserRolePermissionsEntity.
  *
  * @package ArchLayerUser\Entity
  */
-class UserRolePermissionEntity extends Model implements UserRolePermissionsEntityInterface
+class UserRolePermissionsEntity extends Model implements UserRolePermissionsEntityInterface
 {
     use EntityHasTimestamps, HasUuidObserver;
 
