@@ -40,4 +40,31 @@ interface UserServiceInterface extends ServiceInterface
      * @return bool
      */
     public function delete(UserEntityInterface $user): bool;
+
+    /**
+     * Find using forgot password token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingForgotToken(string $token): ?UserEntityInterface;
+
+    /**
+     * Find using remember token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingRememberToken(string $token): ?UserEntityInterface;
+
+    /**
+     * Find using API token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Service\Contract\UserServiceInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingApiToken(string $token): ?UserServiceInterface;
 }

@@ -2,6 +2,7 @@
 
 namespace ArchLayerUser\Service;
 
+use ArchLayer\Repository\RepositoryInterface;
 use ArchLayer\Service\Service;
 use ArchLayerUser\Entity\Contract\UserEntityInterface;
 use ArchLayerUser\Repository\Contract\UserRepositoryInterface;
@@ -69,5 +70,41 @@ class UserService extends Service implements UserServiceInterface
     public function delete(UserEntityInterface $user): bool
     {
         return $this->getRepository()->delete($user);
+    }
+
+    /**
+     * Find using forgot password token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingForgotToken(string $token): ?UserEntityInterface
+    {
+        return $this->getRepository()->findUsingForgotToken($token);
+    }
+
+    /**
+     * Find using remember token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingRememberToken(string $token): ?UserEntityInterface
+    {
+        return $this->getRepository()->findUsingRememberToken($token);
+    }
+
+    /**
+     * Find using API token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Service\Contract\UserServiceInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingApiToken(string $token): ?UserServiceInterface
+    {
+        return $this->getRepository()->findUsingApiToken($token);
     }
 }
