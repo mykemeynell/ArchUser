@@ -29,4 +29,22 @@ interface UserRepositoryInterface extends RepositoryInterface
      * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
     public function findUsingRememberToken(string $token): ?UserEntityInterface;
+
+    /**
+     * Find a user entity using the user's api token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingApiToken(string $token): ?UserEntityInterface;
+
+    /**
+     * Find a user entity using the user's forgot password token.
+     *
+     * @param string $token
+     *
+     * @return \ArchLayerUser\Entity\Contract\UserEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingForgotToken(string $token): ?UserEntityInterface;
 }

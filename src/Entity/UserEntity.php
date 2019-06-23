@@ -47,10 +47,12 @@ class UserEntity extends Authenticatable implements Contract\UserEntityInterface
         'username',
         'email_verified_at',
         'password',
+        'remember_token',
+        'forgot_token',
+        'api_token',
         'role_id',
         'is_root',
         'is_active',
-        'remember_token',
     ];
 
     /**
@@ -145,6 +147,26 @@ class UserEntity extends Authenticatable implements Contract\UserEntityInterface
     public function getEmailVerifiedAt(): Carbon
     {
         return $this->email_verified_at;
+    }
+
+    /**
+     * Get the forgot password token.
+     *
+     * @return string|null
+     */
+    public function getForgotPasswordToken(): ?string
+    {
+        return $this->forgot_token;
+    }
+
+    /**
+     * Get the internal API token.
+     *
+     * @return string|null
+     */
+    public function getApiToken(): ?string
+    {
+        return $this->api_token;
     }
 
     /**
